@@ -1,4 +1,4 @@
-using UI.Components;
+using Menuz.UI.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
