@@ -1,3 +1,4 @@
+using Application;
 using Infrastructure;
 using Menuz.UI.Components;
 
@@ -7,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 builder.Services.AddApplications();
+builder.Services.AddInfrastructure(builder.Configuration);
 
 var app = builder.Build();
 
