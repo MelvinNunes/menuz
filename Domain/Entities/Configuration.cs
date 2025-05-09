@@ -1,4 +1,4 @@
-namespace Application.Domain;
+namespace Domain.Entities;
 
 public class Configuration
 {
