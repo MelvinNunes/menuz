@@ -21,20 +21,12 @@ public class HealthController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<ApiResponse<string>>> Health()
     {
-        try
-        {
-            await _healthService.CheckHealth();
-            return Ok(new ApiResponse<string>
+        await _healthService.CheckHealth();
+        return Ok(new ApiResponse<string>
             {
                 Message = "The health check service is running.",
                 StatusCode = 200,
                 Data = ""
             });
-        }
-        catch (Exception e)
-        {
-            _logger.LogError(e, "Error handling health check service");
-            throw;
-        }
     }
 }
