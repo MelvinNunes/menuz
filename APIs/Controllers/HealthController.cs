@@ -10,12 +10,10 @@ namespace APIs.Controllers;
 public class HealthController : ControllerBase
 {
     private readonly HealthCheckService  _healthService;
-    private readonly ILogger<HealthController> _logger;
 
-    public HealthController(HealthCheckService healthService,  ILogger<HealthController> logger)
+    public HealthController(HealthCheckService healthService)
     {
         _healthService = healthService;
-        _logger = logger;
     }
         
     [HttpGet]

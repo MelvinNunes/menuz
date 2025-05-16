@@ -4,7 +4,13 @@ using Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Initialize Sentry properly using the extension method
+builder.WebHost.UseSentry(o =>
+{
+    o.Dsn = builder.Configuration.GetConnectionString("Sentry");
+    o.ProfilesSampleRate = 0.1;
+    o.TracesSampleRate = 1.0;
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
